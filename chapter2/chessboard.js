@@ -14,15 +14,19 @@
 // When you have a program that generates this pattern, define a binding size = 8 and change the program so that it works for any size, outputting a grid of the given width and height.
 
 let chessboard = "";
-for (let i = 0; i < 72; i++){
-    if (i % 9 === 0) {
-        chessboard += "\n";
+
+function chessTable(columns) {
+    for (let i = 0; i < (columns * (columns + 1)); i++){
+        if ((i % (columns + 1)) === 0) {
+            chessboard += "\n";
+        }
+        else if (i % 2 === 0) {
+            chessboard += "#";
+        } else {
+            chessboard += " ";
+        }
     }
-    else if (i % 2 === 0) {
-        chessboard += "#";
-    } else {
-        chessboard += " ";
-    }
+    return chessboard;
 }
 
-console.log(chessboard);
+console.log(chessTable(8));
